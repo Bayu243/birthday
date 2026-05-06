@@ -1,0 +1,311 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #ffe4f0 0%, #ffd6f7 40%, #d6eaff 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -20px;
+    border-radius: 2px;
+    animation: confettiFall linear forwards;
+  }
+  
+  @keyframes confettiFall {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+  
+  .page {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2rem 1.2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+  }
+  
+  .top-deco,
+  .bottom-deco {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    letter-spacing: 4px;
+  }
+  
+  .birthday-badge {
+    background: linear-gradient(90deg, #ff85b3, #c77dff);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 0.35rem 1.1rem;
+    border-radius: 999px;
+    letter-spacing: 1px;
+  }
+  
+  .title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.6rem;
+    color: #c75096;
+    text-align: center;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    color: #a06080;
+    text-align: center;
+  }
+  
+  .photo-wrapper {
+    position: relative;
+    margin: 0.5rem 0;
+  }
+  
+  .photo-frame {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 0 0 4px #ffb3d9, 0 8px 32px rgba(200, 80, 150, 0.25);
+    overflow: hidden;
+    position: relative;
+    background: #fce4ec;
+  }
+  
+  .photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .photo-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 70%);
+  }
+  
+  .floating-emoji {
+    position: absolute;
+    font-size: 1.4rem;
+    animation: floatBounce 3s ease-in-out infinite;
+  }
+  
+  .e1 { top: -8px; left: -12px; animation-delay: 0s; }
+  .e2 { top: -8px; right: -12px; animation-delay: 0.5s; }
+  .e3 { bottom: 0px; left: -16px; animation-delay: 1s; }
+  .e4 { bottom: 0px; right: -16px; animation-delay: 1.5s; }
+  
+  @keyframes floatBounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+  }
+  
+  .name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #9c27b0;
+    text-align: center;
+  }
+  
+  .tagline {
+    font-size: 0.92rem;
+    color: #c75096;
+    text-align: center;
+  }
+  
+  .btn-open {
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, #ff79b0, #c77dff);
+    color: #fff;
+    border: none;
+    padding: 0.85rem 2.2rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(199, 125, 255, 0.45);
+    transition: transform 0.15s, box-shadow 0.15s;
+    animation: pulsBtn 2s ease-in-out infinite;
+  }
+  
+  .btn-open:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 28px rgba(199, 125, 255, 0.55);
+  }
+  
+  .btn-open:active { transform: scale(0.97); }
+  
+  @keyframes pulsBtn {
+    0%, 100% { box-shadow: 0 6px 20px rgba(199,125,255,0.4); }
+    50%       { box-shadow: 0 6px 30px rgba(199,125,255,0.75); }
+  }
+  
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(80, 20, 80, 0.45);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  
+  .overlay.aktif {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .kartu {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(110%);
+    width: 100%;
+    max-width: 480px;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 28px 28px 0 0;
+    z-index: 200;
+    padding: 1.5rem 1.4rem 2.5rem;
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    scroll-behavior: smooth;
+  }
+  
+  .kartu.aktif {
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  .btn-tutup {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #f8e1f4;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    color: #c75096;
+    cursor: pointer;
+    font-weight: 800;
+    transition: background 0.2s;
+  }
+  
+  .btn-tutup:hover { background: #f0b8e0; }
+  
+  .kartu-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  
+  .kartu-deco-top,
+  .kartu-deco-bottom {
+    font-size: 1.4rem;
+    letter-spacing: 6px;
+  }
+  
+  .kartu-judul {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #c75096;
+    text-align: center;
+  }
+  
+  .amplop {
+    background: linear-gradient(135deg, #ffe4f0, #f3d0ff);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+  
+  .amplop-icon {
+    font-size: 2.5rem;
+    animation: floatBounce 2s ease-in-out infinite;
+  }
+  
+  .kartu-pesan {
+    background: #fdf4ff;
+    border-radius: 16px;
+    padding: 1.2rem 1.1rem;
+    border-left: 4px solid #e879c8;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  
+  .kartu-pesan p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #5a2a6e;
+  }
+  
+  .ttd {
+    margin-top: 0.5rem;
+    color: #9c27b0;
+    font-size: 0.88rem;
+  }
+  
+  .kartu-fun {
+    background: linear-gradient(135deg, #fff0f5, #f0e4ff);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    text-align: center;
+    font-size: 0.88rem;
+    color: #7b3fa0;
+  }
+  
+  .highlight {
+    color: #e040fb;
+    font-weight: 800;
+  }
+  
+  .btn-konfeti {
+    background: linear-gradient(135deg, #ff6ec7, #a855f7);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4);
+    transition: transform 0.15s;
+  }
+  
+  .btn-konfeti:hover  { transform: scale(1.05); }
+  .btn-konfeti:active { transform: scale(0.97); }
+  
+  @media (max-width: 380px) {
+    .title      { font-size: 2.1rem; }
+    .photo-frame { width: 150px; height: 150px; }
+    .name       { font-size: 1.1rem; }
+  }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Zahra!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="confetti-container" id="confettiContainer"></div>
+
+  <div class="page" id="mainPage">
+
+    <div class="top-deco">
+      <span>🎀</span><span>✨</span><span>🎀</span>
+    </div>
+
+    <div class="birthday-badge">🎂 07 Mei 🎂</div>
+
+    <h1 class="title">Happy Birthday!</h1>
+    <p class="subtitle">untuk seseorang yang sangat istimewa</p>
+
+    <div class="photo-wrapper">
+      <div class="photo-frame">
+        <img
+          src="foto.jpeg"
+          alt="Zahra Fabitri Yustiandani"
+          class="photo"
+          id="heroPhoto"
+        />
+        <div class="photo-glow"></div>
+      </div>
+      <div class="floating-emoji e1">🌸</div>
+      <div class="floating-emoji e2">⭐</div>
+      <div class="floating-emoji e3">💖</div>
+      <div class="floating-emoji e4">🌷</div>
+    </div>
+
+    <h2 class="name">Zahra Fabitri Yustiandani</h2>
+
+    <p class="tagline">Semoga harimu seindah senyumanmu 🌸</p>
+
+    <button class="btn-open" id="btnOpen" onclick="bukaKartu()">
+      💌 Buka Surat Untukmu
+    </button>
+
+    <div class="bottom-deco">
+      <span>🦋</span><span>🌈</span><span>🦋</span>
+    </div>
+
+  </div>
+
+  <div class="overlay" id="overlay" onclick="tutupKartu()"></div>
+
+  <div class="kartu" id="kartu">
+    <button class="btn-tutup" onclick="tutupKartu()">✕</button>
+
+    <div class="kartu-inner">
+      <div class="kartu-deco-top">🎊 🎁 🎊</div>
+
+      <h2 class="kartu-judul">Happy Birthday, Zahra! 🥳</h2>
+
+      <div class="amplop">
+        <div class="amplop-icon">💌</div>
+      </div>
+
+      <div class="kartu-pesan">
+        <p>Hai sayang, '-')/</p>
+        <p>
+          Di hari spesial ini, aku mau bilang betapa bersyukurnya aku bisa
+          mengenal kamu. Kamu adalah orang yang luar biasa — penuh semangat,
+          hangat, dan selalu bikin hari-hari jadi lebih cerah. ☀️
+        </p>
+        <p>
+          Semoga di usia yang baru ini, semua impian dan harapanmu
+          terwujud satu per satu. Semoga kamu selalu dikelilingi
+          oleh orang-orang yang menyayangimu dengan tulus. 💖
+        </p>
+        <p>
+          Tetap jadi dirimu yang luar biasa ya! Karena dunia ini
+          jauh lebih indah dengan kehadiranmu. 🌸🌈
+        </p>
+        <p class="ttd">
+          Dengan penuh cinta, <br />
+          <strong>Mas mu yang ganteng ini '-')<💖💖💖💖💖💖</strong>
+        </p>
+      </div>
+
+      <div class="kartu-fun">
+        <p>Fun fact: kamu makin <span class="highlight">cantik</span> tiap tahunnya! 💅✨</p>
+      </div>
+
+      <button class="btn-konfeti" onclick="ledakKonfeti()">
+        🎉 Rayakan Sekarang!
+      </button>
+
+      <div class="kartu-deco-bottom">🎈 🎂 🎈</div>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="lagu.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
